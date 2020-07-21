@@ -12,3 +12,6 @@ while True:
 	# 最後可用 products.append([name, price]) 代替整個
 print(products)
 print(products[0][0]) # 代表products中的第一個商品及價格中的商品。
+
+for product in products: # 印出清單中的每一個東西(小清單)
+	print(product[0], '的價格是', product[1])
