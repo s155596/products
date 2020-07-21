@@ -1,15 +1,39 @@
-# Step 4 讀取檔案
+import os # 代表載入operating system 就代表可以與電腦詢問是否內有檔案
+
+# 5 檢查檔案在不在電腦裡 (不用背)
 products = []
-with open('products.csv', 'r') as f:
-	for line in f:
-		if '商品,價格' in line:
-			continue # 繼續, 代表跳過跳到下一回, 但仍在迴圈內
-		name, price =line.strip().split(',') 
+if os.path.isfile('products.csv'): # 檢查檔案在不在
+	print('yeah! 找到檔案了!')
+	with open('products.csv', 'r') as f:
+		for line in f:
+			if '商品,價格' in line:
+				continue # 繼續, 代表跳過跳到下一回, 但仍在迴圈內
+			name, price =line.strip().split(',') 
 		# 這個字串先把尾巴的\n去掉後，只要遇到逗點就幫我切一刀
 		# 切割完直接存成name 和 price
 		# 若有2個逗點，就需要有3個變數在前面, 以此類推
-		products.append([name, price]) #把name和price裝到product清單內
-print(products)
+			products.append([name, price]) #把name和price裝到product清單內
+	print(products)
+else:
+	print('找不到檔案...')
+# 只給檔名=> 相對路徑(同樣的資料夾內)
+
+
+
+
+
+# Step 4 讀取檔案
+# products = []
+# with open('products.csv', 'r') as f:
+# 	for line in f:
+# 		if '商品,價格' in line:
+# 			continue # 繼續, 代表跳過跳到下一回, 但仍在迴圈內
+# 		name, price =line.strip().split(',') 
+# 		# 這個字串先把尾巴的\n去掉後，只要遇到逗點就幫我切一刀
+# 		# 切割完直接存成name 和 price
+# 		# 若有2個逗點，就需要有3個變數在前面, 以此類推
+# 		products.append([name, price]) #把name和price裝到product清單內
+# print(products)
 
 # Step 1 讓使用者輸入
 while True:
